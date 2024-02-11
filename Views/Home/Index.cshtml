@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center" style="height:200px;width:50%;background-color:gold;">
+    <br /><br />
+    <div id="abc"class="text-center"style="background-color:aquamarine">
+        abc
+
+    
+
+
+    </div>  
+
+    <br />
+   <button id="btn" class="btn btn-success"> Generate new Joke </button>
+</div>
+<script>
+    const url = "https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single";
+    let getJoke = () => {
+
+
+        fetch(url)
+            .then(data => data.json())
+            .then(item => {
+                document.getElementById("abc").innerHTML = item.joke;
+            });
+           
+    }
+    getJoke();
+    btn.addEventListener("click", getJoke);
+
+
+</script>
